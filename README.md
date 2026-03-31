@@ -47,12 +47,8 @@ a **continuous, potentially infinite, non-IID stream**. The MinRed buffer
 mitigates data correlation by discarding the most redundant stored sample
 when a new one arrives. It identifies the most redundant sample $i^*$ as
 the one with the minimum cosine distance to its nearest neighbor in the
-embedding space:
+embedding space.
 
-$$\mathcal{B} \leftarrow \mathcal{B} \setminus \{i^*\} \cup \{x\}
-\quad \text{where} \quad
-i^* = \arg\min_{i \in \mathcal{B}} \min_{j \in \mathcal{B},\, j \neq i}
-d_{\cos}(\bar{z}_i, \bar{z}_j)$$
 
 To ensure stability as the model's weights evolve, buffer representations
 are maintained via an exponential moving average:
